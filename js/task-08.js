@@ -22,10 +22,11 @@
 
 const emailElRef = document.querySelector('input[name ="email"]');
 const pwdElRef = document.querySelector('input[name ="password"]');
-const btnElRef = document.querySelector('button[type="submit"]');
+const formElRef = document.querySelector('.login-form');
 
-btnElRef.addEventListener('click', (e) => {
-    e.preventDefault();
+
+formElRef.addEventListener("submit", (event) => {
+    event.preventDefault();
     if (!emailElRef.value) {
         alert("Please, enter your email");
     }
@@ -38,5 +39,6 @@ btnElRef.addEventListener('click', (e) => {
             password: pwdElRef.value,
         }
         console.log(dataObj);
+        event.currentTarget.reset();
     }
 })
